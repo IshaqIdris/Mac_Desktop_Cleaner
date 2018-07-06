@@ -6,6 +6,7 @@ desktop = os.listdir(mypath)
 #add output folders
 screenshot_folder = "/Users/ishaqidris/desktop/screenshots/"
 media_folder = "/Users/ishaqidris/desktop/media/"
+doc_folder = "/Users/ishaqidris/desktop/docs/"
 
 for file in desktop:
     
@@ -22,4 +23,11 @@ for file in desktop:
             os.makedirs(media_folder)
         
         os.rename(mypath + file, media_folder + file )
+    
+    #Tidy up documents
+    elif file.lower().endswith(('.doc', '.docx', '.pdf', '.pptx', '.txt')):
+        if not os.path.exists(doc_folder):
+            os.makedirs(doc_folder)
+        
+        os.rename(mypath + file, doc_folder + file )
 
